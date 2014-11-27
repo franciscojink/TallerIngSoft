@@ -1,0 +1,9 @@
+#*.zip
+target
+*/*.iml
+*/.idea
+*/.settings
+#AgendaRESTReduced/src/main/webapp/html
+#AgendaRESTReduced/src/main/webapp/js
+#EjemploWebDriver/
+#MisDocumentos
