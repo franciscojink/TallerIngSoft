@@ -15,24 +15,36 @@ public class PersonaDAO {
     @Inject
     private BaseDatos bd;
 
-//    public void nuevaPersona(Persona persona) {
-//        bd.nuevaPersona(persona);
-//    }
+    public void nuevaPersona(Persona persona) {
+        bd.nuevaPersona(persona);
+    }
 
     public Persona buscaPersonaPorNIF(String nif) {
         Persona persona = bd.buscaPersonaPorNIF(nif);
         if(persona == BaseDatos.ENTRADA_NULL)
             return ENTRADA_NULL;
         else return persona;
-//        return bd.buscaPersonaPorNIF(nif);
     }
 
     public Persona[] listaTodasPersonas() {
         return bd.getListaPersonas();
     }
 
-    public Persona[] anyadePersonas(int cuantas) {
-        bd.creaEntradasAleatorias(cuantas);
-        return bd.getListaPersonas();
+    public boolean creaNuevaEntrada(Persona persona) {
+        if(bd.buscaPersonaPorNIF(persona.getNif()) != BaseDatos.ENTRADA_NULL)
+            return false;
+        else {
+            bd.nuevaPersona(persona);
+            return true;
+        }
+    }
+
+    public boolean actualizaPersona(Persona persona) {
+        Persona enLista = buscaPersonaPorNIF(persona.getNif());
+        if(enLista != ENTRADA_NULL) {
+            bd.actualizaPersona(persona);
+            return true;
+        }
+        return false;
     }
 }

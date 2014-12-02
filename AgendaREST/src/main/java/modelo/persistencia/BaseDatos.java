@@ -11,5 +11,4 @@ public interface BaseDatos {
 	void nuevaPersona(Persona persona);
 	void actualizaPersona(Persona entrada);
 	void borraPersona(String nif);
-	void creaEntradasAleatorias(int numeroEntradas);
 }
