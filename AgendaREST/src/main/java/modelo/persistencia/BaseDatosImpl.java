@@ -27,18 +27,21 @@ public class BaseDatosImpl implements BaseDatos {
 		return ENTRADA_NULL;
 	}
 
-	public void nuevaPersona(Persona persona) {
+	public boolean nuevaPersona(Persona persona) {
 		mapaPersonas.put(persona.getNif(), persona);
+		return true;
 	}
 
-	public void actualizaPersona(Persona persona) {
+	public boolean actualizaPersona(Persona persona) {
 		mapaPersonas.put(persona.getNif(), persona);
+		return true;
 	}
 
-	public void borraPersona(String nif) {
+	public boolean borraPersona(String nif) {
 		Persona entrada = buscaPersonaPorNIF(nif);
 		if(entrada != ENTRADA_NULL) {
 			mapaPersonas.remove(nif);
-		} else System.out.println("No se encontró");
+			return true;
+		} else return false;
 	}
 }
