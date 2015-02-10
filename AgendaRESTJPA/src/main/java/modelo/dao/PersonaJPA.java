@@ -18,7 +18,8 @@ import java.util.List;
 @Stateless
 public class PersonaJPA {
     public static Persona ENTRADA_NULL = new Persona();
-    @PersistenceContext(unitName = "personasJTA")
+//    @PersistenceContext(unitName = "personasJTA")
+    @PersistenceContext(unitName = "personasJTADerby")
     EntityManager em;
 
     public void nuevaPersona(Persona persona) {

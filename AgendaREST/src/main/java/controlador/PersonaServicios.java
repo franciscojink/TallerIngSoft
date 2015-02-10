@@ -25,7 +25,7 @@ public class PersonaServicios {
 
     @GET
     @Path("{nif}")
-    @Produces("application/json")
+    @Produces("application/xml")
     public Response buscarPersonaPorNIF(@PathParam("nif") String nif) {
         Persona persona = personaDAO.buscaPersonaPorNIF(nif);
         if (persona == personaDAO.ENTRADA_NULL)
