@@ -27,8 +27,10 @@ public class CreaPersonas {
     @Path("{cuantas}")
     public Response creaPersonas(@PathParam("cuantas") int cuantas) {
         Persona[] personas = new Persona[cuantas];
-        Persona persona;
-        for(int i = 0; i < cuantas; i++) {
+        Persona persona = new Persona("Oscar", "Belmonte", "123X");
+        personaDAO.creaNuevaEntrada(persona);
+        personas[0] = persona;
+        for(int i = 1; i < cuantas; i++) {
             persona = new Persona();
             persona.setNombre(generador.getNombre());
             persona.setApellidos(generador.getApellido());

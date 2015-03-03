@@ -64,9 +64,9 @@
                 <td>{{contact.nombre}}</td>
                 <td>{{contact.apellidos}}</td>
                 <td>{{contact.nif}}</td>
-                <td><button type="submit" class="btn btn-info" data-toggle="modal" data-target="#actualizar"
+                <td><button type="submit" id="update:{{contact.nif}}" class="btn btn-info" data-toggle="modal" data-target="#actualizar"
                         ng-click="contactosCtrl.retreiveContact(contact.nif)">Actualizar</button></td>
-                <td><button type="button" class="btn btn-danger" ng-click="contactosCtrl.delete(contact.nif)">Borrar</button> </td>
+                <td><button type="button" id="delete:{{contact.nif}}" class="btn btn-danger" ng-click="contactosCtrl.delete(contact.nif)">Borrar</button> </td>
             </tr>
         </table>
     </div>
