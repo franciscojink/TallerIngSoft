@@ -1,3 +1,4 @@
+@delete
 Feature: Delete person
   In order to delete a person
   As a web page user
