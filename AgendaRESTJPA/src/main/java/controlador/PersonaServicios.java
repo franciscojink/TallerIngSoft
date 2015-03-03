@@ -84,4 +84,18 @@ public class PersonaServicios {
             }
         }
     }
+
+    @DELETE
+    @Path("/{nif}")
+    @Produces("application/json")
+    public Response borraEntrada(@PathParam("nif") String nif) {
+        if (nif != null) {
+            if (personaDAO.borraPersona(nif) == true)
+                return Response.status(Response.Status.ACCEPTED).build();
+            else
+                return Response.status(Response.Status.NOT_FOUND).build();
+
+        } else
+            return Response.status(Response.Status.BAD_REQUEST).build();
+    }
 }

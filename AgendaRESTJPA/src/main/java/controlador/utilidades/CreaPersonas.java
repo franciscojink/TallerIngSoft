@@ -1,6 +1,7 @@
 package controlador.utilidades;
 
 import es.uji.www.GeneradorDatosINE;
+import modelo.dao.PersonaJPA;
 import modelo.datos.Persona;
 import modelo.persistencia.BaseDatos;
 
@@ -19,7 +20,8 @@ import javax.ws.rs.core.Response;
 public class CreaPersonas {
     private GeneradorDatosINE generador = new GeneradorDatosINE();
     @Inject
-    private BaseDatos  bd;
+//    private BaseDatos  bd;
+    private PersonaJPA personaDAO;
 
     @POST
     @Path("{cuantas}")
@@ -31,7 +33,8 @@ public class CreaPersonas {
             persona.setNombre(generador.getNombre());
             persona.setApellidos(generador.getApellido());
             persona.setNif(generador.getNIF());
-            bd.nuevaPersona(persona);
+//            bd.nuevaPersona(persona);
+            personaDAO.creaNuevaEntrada(persona);
             personas[i] = persona;
         }
         Response response = Response.ok(personas).build();

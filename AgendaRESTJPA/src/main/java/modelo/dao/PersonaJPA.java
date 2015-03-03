@@ -18,8 +18,8 @@ import java.util.List;
 @Stateless
 public class PersonaJPA {
     public static Persona ENTRADA_NULL = new Persona();
-//    @PersistenceContext(unitName = "personasJTA")
-    @PersistenceContext(unitName = "personasJTADerby")
+    @PersistenceContext(unitName = "personasJTA")
+//    @PersistenceContext(unitName = "personasJTADerby")
     EntityManager em;
 
     public void nuevaPersona(Persona persona) {
@@ -63,4 +63,15 @@ public class PersonaJPA {
         }
     }
 
+    public boolean borraPersona(String nif) {
+        TypedQuery<Persona> query = em.createNamedQuery("Persona.borraPorNif", Persona.class);
+        query.setParameter("nif", nif);
+        try {
+            int deletedRows = query.executeUpdate();
+            if(deletedRows == 1) return true;
+            else return false;
+        } catch (NoResultException e) {
+            return false;
+        }
+    }
 }

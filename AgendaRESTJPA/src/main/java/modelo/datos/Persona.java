@@ -13,7 +13,8 @@ import javax.xml.bind.annotation.XmlType;
 @Entity
 @NamedQueries({
         @NamedQuery(name="Persona.encuentraTodas", query = "SELECT p FROM Persona p"),
-        @NamedQuery(name = "Persona.encuentraPorNif", query = "SELECT p FROM Persona p WHERE p.nif = :nif")
+        @NamedQuery(name = "Persona.encuentraPorNif", query = "SELECT p FROM Persona p WHERE p.nif = :nif"),
+        @NamedQuery(name="Persona.borraPorNif", query = "DELETE FROM Persona p WHERE p.nif = :nif")
 })
 public class Persona {
     @Id
