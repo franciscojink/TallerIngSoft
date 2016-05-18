@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="WebApp_ID" version="2.5">
+    <!--<description>Testing Filters in JAX-RS</description>-->
+    <!--<servlet>-->
+        <!--<servlet-name>restcontainer</servlet-name>-->
+        <!--<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>-->
+        <!--<init-param>-->
+            <!--<param-name>jersey.config.server.provider.packages</param-name>-->
+            <!--<param-value>com.javatech.rest.filters.resource,com.javatech.rest.filters.providers</param-value>-->
+        <!--</init-param>-->
+    <!--</servlet>-->
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>restcontainer</servlet-name>-->
+        <!--<url-pattern>/rest/*</url-pattern>-->
+    <!--</servlet-mapping>-->
+    
+    <filter>
+        <filter-name>anotacion</filter-name>
+        <filter-class>controlador.Filtro</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>anotacion</filter-name>
+        <url-pattern>/personas</url-pattern>
+    </filter-mapping>
+    
+</web-app>

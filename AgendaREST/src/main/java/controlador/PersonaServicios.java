@@ -5,6 +5,7 @@ import modelo.datos.Persona;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
+import javax.ws.rs.container.ContainerRequestContext;
 import javax.ws.rs.core.*;
 import java.net.URI;
 
@@ -12,6 +13,7 @@ import java.net.URI;
  * Created by oscar on 27/11/14.
  */
 @Path("personas")
+//@Anotacion
 public class PersonaServicios {
     @Inject
     PersonaDAO personaDAO;
@@ -35,6 +37,7 @@ public class PersonaServicios {
 
     @GET
     @Produces("application/json")
+    @Anotacion
     public Response listaTodasPersonas() {
         Persona[] personas = personaDAO.listaTodasPersonas();
         return Response.ok(personas).build();
